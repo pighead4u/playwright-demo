@@ -37,11 +37,12 @@ def run(playwright):
     context.close()
     browser.close()
 
-
+# 待后端倒序排列后处理
 def _test_delete(page):
-    page.goto("http://mes-dev.tunnel.shunjiantech.cn/#/test-info/companies/2")
-    # Click text=编辑删除编辑删除编辑删除编辑删除编辑删除编辑删除编辑删除编辑删除编辑删除 >> button
-    page.click(".ant-table-fixed-right .ant-table-tbody tr:nth-child(2) .ant-space div:nth-child(1) .text-button")
+    # page.goto("http://mes-dev.tunnel.shunjiantech.cn/#/test-info/companies/2")
+    # # Click text=编辑删除编辑删除编辑删除编辑删除编辑删除编辑删除编辑删除编辑删除编辑删除 >> button
+    # page.click(".ant-table-fixed-right .ant-table-tbody tr:nth-child(2) .ant-space div:nth-child(1) .text-button")
+    pass
 
 
 # 测试两种情况：
