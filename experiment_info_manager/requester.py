@@ -62,7 +62,7 @@ def _test_update(page):
         page.click("button:has-text('确定')")
     t = response_info.value.json()
     assert t['code'] == -1, Exception("修改后的委托单位已经存在，测试用例失败!!!")
-    page.click("button:has-text('取消')")
+    # page.click("button:has-text('取消')")
 
     # Click text=编辑名称地址邮编联系人联系电话取消确定 >> [placeholder="请输入"]
     page.click("text=编辑名称地址邮编联系人联系电话取消确定 >> [placeholder='请输入']")
