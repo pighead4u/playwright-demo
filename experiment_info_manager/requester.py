@@ -9,29 +9,29 @@ def run(playwright):
     browser = playwright.firefox.launch(headless=True)
     context = browser.new_context()
 
-    print("_test_search start")
+    print("requster_test_search start")
     page = context.new_page()
     _test_search(page)
     page.close()
-    print("_test_search end")
+    print("requster_test_search end")
 
-    print("_test_create start")
+    print("requster_test_create start")
     page = context.new_page()
     _test_create(page)
     page.close()
-    print("_test_create end")
+    print("requster_test_create end")
 
-    print("_test_update start")
+    print("requster_test_update start")
     page = context.new_page()
     _test_update(page)
     page.close()
-    print("_test_update end")
+    print("requster_test_update end")
 
-    print("_test_delete start")
+    print("requster_test_delete start")
     page = context.new_page()
     _test_delete(page)
     page.close()
-    print("_test_delete end")
+    print("requster_test_delete end")
 
     page.close()
     context.close()
@@ -39,7 +39,9 @@ def run(playwright):
 
 
 def _test_delete(page):
-    pass
+    page.goto("http://mes-dev.tunnel.shunjiantech.cn/#/test-info/companies/2")
+    # Click text=编辑删除编辑删除编辑删除编辑删除编辑删除编辑删除编辑删除编辑删除编辑删除 >> button
+    page.click(".ant-table-fixed-right .ant-table-tbody tr:nth-child(2) .ant-space div:nth-child(1) .text-button")
 
 
 # 测试两种情况：
