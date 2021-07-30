@@ -1,0 +1,80 @@
+from playwright.sync_api import sync_playwright
+
+def run(playwright):
+    browser = playwright.chromium.launch(headless=False)
+    context = browser.new_context()
+
+    # Open new page
+    page = context.new_page()
+
+    # Go to http://mes-dev.tunnel.shunjiantech.cn/#/test-info/test-items
+    page.goto("http://mes-dev.tunnel.shunjiantech.cn/#/test-info/test-items")
+
+    # Click [placeholder="请输入"]
+    page.click("[placeholder=\"请输入\"]")
+
+    # Fill [placeholder="请输入"]
+    page.fill("[placeholder=\"请输入\"]", "温升试验")
+
+    # Click button:has-text("查询")
+    page.click("button:has-text(\"查询\")")
+
+    # Click button:has-text("重置")
+    page.click("button:has-text(\"重置\")")
+
+    # Click button:has-text("查询")
+    page.click("button:has-text(\"查询\")")
+
+    # Click [placeholder="请输入"]
+    page.click("[placeholder=\"请输入\"]")
+
+    # Fill [placeholder="请输入"]
+    page.fill("[placeholder=\"请输入\"]", "温升实验1")
+
+    # Click button:has-text("查询")
+    page.click("button:has-text(\"查询\")")
+
+    # Click button:has-text("重置")
+    page.click("button:has-text(\"重置\")")
+
+    # Click button:has-text("查询")
+    page.click("button:has-text(\"查询\")")
+
+    # Click .ant-select-selector
+    page.click(".ant-select-selector")
+
+    # Click text=特殊
+    page.click("text=特殊")
+
+    # Click button:has-text("查询")
+    page.click("button:has-text(\"查询\")")
+
+    # Click button:has-text("重置")
+    page.click("button:has-text(\"重置\")")
+
+    # Click .ant-select-selector
+    page.click(".ant-select-selector")
+
+    # Click text=例行
+    page.click("text=例行")
+
+    # Click button:has-text("查询")
+    page.click("button:has-text(\"查询\")")
+
+    # Click button:has-text("重置")
+    page.click("button:has-text(\"重置\")")
+
+    # Click button:has-text("查询")
+    # with page.expect_navigation(url="http://mes-dev.tunnel.shunjiantech.cn/#/test-info/test-items"):
+    with page.expect_navigation():
+        page.click("button:has-text(\"查询\")")
+
+    # Close page
+    page.close()
+
+    # ---------------------
+    context.close()
+    browser.close()
+
+with sync_playwright() as playwright:
+    run(playwright)
