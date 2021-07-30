@@ -1,7 +1,7 @@
 from playwright.sync_api import sync_playwright
 
 def run(playwright):
-    browser = playwright.firefox.launch(headless=False)
+    browser = playwright.chromium.launch(headless=False)
     context = browser.new_context()
 
     # Open new page
@@ -160,14 +160,10 @@ def run(playwright):
 
     with page.expect_response("**/api/v1/companies/*") as response_info:
         t = response_info.value.json()
-        if (t['code'] != 0):
-            print('code 不等于 0')
-        elif (t['message'] != '删除企业成功'):
-            print('message 不等于 删除企业成功')
-        else:
+        if (t['code'] == 0):
             print('删除企业成功')
 
-
+    print('删除企业成功')
     page.goto("http://mes-dev.tunnel.shunjiantech.cn/#/test-info/companies/1")
     # Close page
     page.close()
@@ -176,7 +172,5 @@ def run(playwright):
     context.close()
     browser.close()
 
-
-if __name__ == "__main__":
-    with sync_playwright() as playwright:
-        run(playwright)
+with sync_playwright() as playwright:
+    run(playwright)
