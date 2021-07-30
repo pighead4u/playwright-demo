@@ -6,7 +6,7 @@ _company = f"单位{datetime.datetime.now()}"
 # 委托单位管理
 # 测试委托单位的增删改查
 def run(playwright):
-    browser = playwright.firefox.launch(headless=False)
+    browser = playwright.firefox.launch(headless=True)
     context = browser.new_context()
 
     print("_test_search start")
