@@ -1,7 +1,7 @@
 from playwright.sync_api import sync_playwright
 
 def run(playwright):
-    browser = playwright.firefox.launch(headless=False)
+    browser = playwright.firefox.launch(headless=True)
     context = browser.new_context()
 
     # Open new page
