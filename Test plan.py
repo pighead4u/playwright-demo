@@ -128,7 +128,7 @@ def run(playwright):
         page.click("button:has-text(\"确定\")")
         t = response_info.value.json()
         if (t['code'] == -1):
-            print('已存在相同名称的企业')
+            print('已存在相同名称的试验方案')
 
     # Click .ant-table-body-inner .ant-table-fixed .ant-table-tbody .ant-table-row.ant-table-row-hover .ant-table-row-cell-break-word .ant-space div .text-button
     # page.click(".ant-table-body-inner .ant-table-fixed .ant-table-tbody .ant-table-row.ant-table-row-hover .ant-table-row-cell-break-word .ant-space div .text-button")
