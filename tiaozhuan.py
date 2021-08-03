@@ -56,14 +56,14 @@ def run(playwright):
         t = response_info.value.json()
         # print(t['data']['name'])
         print(t['data']['list'][1]['test_area'])
-        if t['data']['list'][1]['test_area'] == "收发室":
+        if t['data']['list'][1]['test_area'] == "温升试验区":
             print("新增成功")
 
-    print("工位绑定删除：")
+    # print("工位绑定删除：")
     # Click :nth-match(:text("删除"), 5)
-    page.click(":nth-match(:text(\"删除\"), 5)")
+    # page.click(":nth-match(:text(\"删除\"), 5)")
 
-    page.click("button:has-text(\"确定\")")
+    # page.click("button:has-text(\"确定\")")
 
     print("删除成功")
     # with page.expect_response("**/api/v1/test_station_bindings/40") as response_info:
