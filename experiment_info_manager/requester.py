@@ -121,7 +121,7 @@ def _test_search(page):
     with page.expect_response("**/api/v1/companies?type=2&name=%E5%8D%95%E4%BD%8D100") as response_info:
         page.click("button:has-text('查询')")
         t = response_info.value.json()
-        print(f"_test_search--{t}")
+        # print(f"_test_search--{t}")
         assert t['data']['total'] == 0, Exception("查询不存在的委托单位失败！！！")
 
 
